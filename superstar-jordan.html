@@ -1,0 +1,1479 @@
+<!doctype html>
+<html lang="ko">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#fff">
+  <title>SUPERSTAR X JORDAN - adidas</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;600;700;800;900&display=swap');
+
+    :root {
+      --ink: #111;
+      --gray: #767676;
+      --border: #ddd;
+      --soft: #f5f5f5;
+      --yellow: #ede734;
+      --campaign: #a8793f;
+      --paper: #f7f5f0
+    }
+
+    * {
+      box-sizing: border-box
+    }
+
+    html {
+      scroll-behavior: smooth
+    }
+
+    body {
+      margin: 0;
+      color: var(--ink);
+      font-family: 'Noto Sans KR', Arial, sans-serif
+    }
+
+    button {
+      font: inherit;
+      color: inherit;
+      cursor: pointer
+    }
+
+    a {
+      color: inherit
+    }
+
+    .promo {
+      height: 32px;
+      background: #111;
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      font-size: 11px
+    }
+
+    .promo a {
+      color: white;
+      text-underline-offset: 3px
+    }
+
+    .utility {
+      height: 34px;
+      padding: 0 5.2%;
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      gap: 22px;
+      font-size: 11px
+    }
+
+    .utility a {
+      text-decoration: none
+    }
+
+    .utility #ordersLink { display:inline-flex; align-items:center; gap:8px; padding:8px 13px; background:#111; color:#fff; font-weight:700; box-shadow:3px 3px 0 var(--campaign); transition:transform .2s, box-shadow .2s }
+    .utility #ordersLink:hover { transform:translate(-1px,-1px); box-shadow:4px 4px 0 var(--campaign) }
+
+    .nav {
+      height: 66px;
+      position: sticky;
+      top: 0;
+      z-index: 5;
+      background: #fff;
+      display: flex;
+      align-items: center;
+      padding: 0 5.2%;
+      gap: 35px;
+      border-bottom: 1px solid #eee
+    }
+
+    .logo {
+      width: 49px;
+      flex: none
+    }
+
+    .logo svg {
+      display: block;
+      width: 47px;
+      height: 36px
+    }
+
+    .navlinks {
+      height: 100%;
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      flex: 1
+    }
+
+    .navlinks a {
+      height: 100%;
+      display: flex;
+      align-items: center;
+      text-decoration: none;
+      font-size: 13px;
+      font-weight: 700;
+      position: relative
+    }
+
+    .navlinks a:hover:after {
+      content: '';
+      height: 3px;
+      background: #111;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0
+    }
+
+    .tools {
+      display: flex;
+      align-items: center;
+      gap: 12px
+    }
+
+    .search {
+      width: 180px;
+      height: 36px;
+      background: #f5f5f5;
+      display: flex;
+      align-items: center;
+      padding: 0 10px;
+      border-bottom: 1px solid #111
+    }
+
+    .search svg {
+      width: 19px;
+      height: 19px;
+      flex: none
+    }
+
+    .search input {
+      border: 0;
+      outline: 0;
+      background: transparent;
+      width: 100%;
+      font-size: 12px;
+      padding-left: 7px
+    }
+
+    .tool {
+      width: 30px;
+      height: 36px;
+      border: 0;
+      background: transparent;
+      display: grid;
+      place-items: center;
+      position: relative;
+      padding: 0
+    }
+
+    .tool svg {
+      width: 22px;
+      height: 22px;
+      stroke: #111;
+      fill: none;
+      stroke-width: 1.7;
+      stroke-linecap: round;
+      stroke-linejoin: round
+    }
+
+    .count {
+      position: absolute;
+      top: 0;
+      right: -3px;
+      display: grid;
+      place-items: center;
+      background: #111;
+      color: white;
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      font-size: 9px
+    }
+
+    .mobile {
+      display: none;
+      color: #111;
+      text-decoration: none
+    }
+
+    .layout {
+      padding: 22px 5.2% 0
+    }
+
+    .crumb {
+      font-size: 11px;
+      color: #666;
+      margin: 0 0 16px
+    }
+
+    .crumb a {
+      text-decoration: none
+    }
+
+    .product {
+      display: grid;
+      grid-template-columns: minmax(0, 1.68fr) minmax(345px, .88fr);
+      gap: 42px;
+      align-items: start;
+      max-width: 1680px;
+      margin:0 auto
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+      position: relative
+    }
+
+    .shot {
+      width: 100%;
+      aspect-ratio: 1/1;
+      background: #f4f4f4;
+      overflow: hidden;
+      position: relative
+    }
+
+    .shot img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform .35s;
+      cursor: zoom-in
+    }
+
+    .shot:hover img {
+      transform: scale(1.025)
+    }
+
+    .zoom {
+      position: absolute;
+      right: 12px;
+      bottom: 12px;
+      border: 0;
+      border-radius: 50%;
+      background: #fff;
+      width: 37px;
+      height: 37px;
+      display: grid;
+      place-items: center
+    }
+
+    .zoom svg {
+      width: 19px;
+      height: 19px;
+      stroke: #111;
+      fill: none;
+      stroke-width: 1.7
+    }
+
+    .thumbs {
+      display: none
+    }
+
+    .details {
+      position: sticky;
+      top: 82px;
+      padding: 4px 0 30px;
+      max-height: calc(100vh - 96px);
+      overflow: auto;
+      scrollbar-width: none
+    }
+
+    .details::-webkit-scrollbar {
+      display: none
+    }
+
+    .edition-kicker { display:flex; justify-content:space-between; gap:10px; margin:0 0 17px; padding-bottom:12px; border-bottom:1px solid #d9d4ca; color:#766345; font-size:10px; font-weight:700; letter-spacing:1.15px }
+
+    .rating {
+      font-size: 12px;
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      margin: 0 0 7px
+    }
+
+    .stars {
+      letter-spacing: 1px;
+      font-size: 14px
+    }
+
+    .rating a {
+      font-size: 11px;
+      text-decoration: underline;
+      color: #555
+    }
+
+    .title {
+      font-size: 29px;
+      font-weight: 800;
+      line-height: 1.25;
+      margin: 0 0 7px;
+      letter-spacing: -.8px
+    }
+
+    .category {
+      font-size: 12px;
+      color: #555;
+      margin: 0 0 13px
+    }
+
+    .price {
+      font-size: 16px;
+      font-weight: 700;
+      margin: 0 0 23px
+    }
+    .viewer-count { display:inline-flex; align-items:center; gap:8px; margin:-11px 0 18px; padding:8px 10px; background:#f2f4f3; font-size:12px; color:#333 }
+    .viewer-count .live-dot { width:7px; height:7px; border-radius:50%; background:#42a36b; box-shadow:0 0 0 3px #42a36b22 }
+
+    .colorlabel {
+      font-weight: 700;
+      font-size: 12px;
+      margin-bottom: 6px
+    }
+
+    .colorname {
+      font-size: 12px;
+      margin-bottom: 12px
+    }
+
+    .swatchrow {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 23px
+    }
+
+    .points {
+      display: inline-block;
+      background: #f0ebe2;
+      color:#6c512d;
+      padding: 8px 12px;
+      margin: 0 0 17px;
+      font-size: 12px;
+      font-weight: 700
+    }
+
+    .swatchrow {
+      flex-wrap: wrap;
+      gap: 6px
+    }
+
+    .swatchrow .swatch {
+      width: 68px;
+      height: 72px;
+      background: #f0f2f2;
+      padding: 3px
+    }
+
+
+    .coupon {
+      font-size: 12px;
+      line-height: 1.9;
+      margin: 0 0 24px
+    }
+
+    .coupon a { text-underline-offset: 4px }
+
+    .swatch {
+      width: 48px;
+      height: 48px;
+      border: 1px solid #d1d1d1;
+      padding: 3px;
+      background: white
+    }
+
+    .swatch.selected {
+      border: 1px solid #111
+    }
+
+    .swatch img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover
+    }
+
+    .sizehead {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 10px
+    }
+
+    .sizehead strong {
+      font-size: 13px
+    }
+
+    .sizehead button {
+      border: 0;
+      background: none;
+      text-decoration: underline;
+      font-size: 11px;
+      padding: 0
+    }
+
+    .sizes {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 7px
+    }
+
+    .size {
+      height: 43px;
+      background: #fff;
+      border: 1px solid #b7b7b7;
+      font-size: 12px
+    }
+
+    .size:hover {
+      border-color: #111
+    }
+
+    .size.selected {
+      background: #111;
+      border-color: #111;
+      color: white
+    }
+
+    .size.unavailable {
+      color: #aaa;
+      text-decoration: line-through;
+      border-style: dashed
+    }
+
+    .fit {
+      margin: 10px 0 17px;
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      font-size: 11px
+    }
+
+    .fit svg {
+      width: 18px;
+      height: 18px;
+      stroke: #111;
+      fill: none;
+      stroke-width: 1.5
+    }
+
+    .fit strong {
+      font-weight: 700
+    }
+
+    .fit a {
+      text-decoration: underline;
+      margin-left: auto
+    }
+
+    .actions {
+      display: flex;
+      gap: 9px;
+      margin-bottom: 17px
+    }
+
+    .tracking-cta { width:100%; min-height:48px; display:flex; align-items:center; justify-content:space-between; gap:12px; padding:0 15px; margin:0 0 20px; color:#fff; background:#24221f; border:1px solid #24221f; text-align:left; font-size:12px; font-weight:700; letter-spacing:.15px; transition:background .2s, color .2s }
+    .tracking-cta:hover { background:#fff; color:#111 }
+    .tracking-cta .tracking-label { display:flex; align-items:center; gap:10px }
+    .tracking-cta svg { width:19px; height:19px; fill:none; stroke:currentColor; stroke-width:1.6 }
+
+    .add {
+      height: 52px;
+      flex: 1;
+      background: #111;
+      color: white;
+      border: 0;
+      font-size: 13px;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 17px;
+      box-shadow: 4px 4px 0 #999;
+      text-decoration: none
+    }
+
+    .add:hover {
+      background: #333
+    }
+
+    .add, .wish { text-decoration: none }
+
+    .wish {
+      height: 52px;
+      width: 54px;
+      border: 1px solid #111;
+      background: #fff;
+      display: grid;
+      place-items: center
+    }
+
+    .wish svg {
+      width: 22px;
+      height: 22px;
+      stroke: #111;
+      fill: none;
+      stroke-width: 1.6
+    }
+
+    .wish.active svg {
+      fill: #111
+    }
+
+    .notice {
+      font-size: 11px;
+      color: #555;
+      margin: 0 0 18px
+    }
+
+    .notice strong {
+      color: #111
+    }
+
+    .perks {
+      border-top: 1px solid #ddd;
+      border-bottom: 1px solid #ddd
+    }
+
+    .perk {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+      padding: 13px 0;
+      border-bottom: 1px solid #eee;
+      font-size: 11px
+    }
+
+    .perk:last-child {
+      border: 0
+    }
+
+    .perk svg {
+      width: 21px;
+      height: 21px;
+      stroke: #111;
+      fill: none;
+      stroke-width: 1.5;
+      flex: none
+    }
+
+    .perk a {
+      color: #111;
+      text-decoration: underline;
+      text-underline-offset: 3px
+    }
+
+    .footbottom a {
+      color: inherit;
+      text-decoration: none
+    }
+
+    .official-link {
+      text-decoration: underline;
+      text-underline-offset: 4px
+    }
+
+    .review-summary { display:flex; align-items:center; gap:7px; font-size:12px; margin-bottom:7px }
+    .review-summary .stars { letter-spacing:1px }
+    .review-summary a { color:#555; text-underline-offset:3px }
+    .review-note { color:#777; font-size:11px; margin:0 0 14px }
+    .review-list { border-top:1px solid #ddd; margin-top:12px }
+    .review-item { padding:16px 0; border-bottom:1px solid #e7e7e7 }
+    .review-item header { display:flex; justify-content:space-between; align-items:center; font-size:12px }
+    .review-item .stars { font-size:12px }
+    .review-item time { color:#888; font-size:10px }
+    .review-item p { font-size:12px; line-height:1.75; color:#444; margin:8px 0 0 }
+    .cart-shade { display:none; position:fixed; inset:0; z-index:30; background:rgba(0,0,0,.38) }
+    .cart-shade.open { display:block }
+    .cart-panel { position:absolute; right:0; top:0; height:100%; width:min(430px,100%); background:#fff; padding:24px; overflow:auto; box-shadow:-8px 0 25px #0002 }
+    .cart-head { display:flex; justify-content:space-between; align-items:center; border-bottom:1px solid #ddd; padding-bottom:16px }
+    .cart-head h2 { margin:0; font-size:21px }
+    .cart-close { border:0; background:none; font-size:26px; line-height:1 }
+    .cart-empty { padding:70px 0; text-align:center; font-size:14px; color:#555 }
+    .cart-row { display:grid; grid-template-columns:105px 1fr; gap:14px; padding:20px 0; border-bottom:1px solid #ddd }
+    .cart-row img { width:105px; height:105px; object-fit:cover; background:#f1f1f1 }
+    .cart-row h3 { font-size:14px; margin:0 0 7px }
+    .cart-row p { font-size:11px; color:#555; margin:5px 0 }
+    .cart-controls { display:flex; align-items:center; gap:10px; margin-top:10px }
+    .cart-controls button { width:27px; height:27px; background:white; border:1px solid #aaa }
+    .cart-remove { border:0!important; text-decoration:underline; width:auto!important; padding:0 4px }
+    .cart-total { display:flex; justify-content:space-between; padding:18px 0; font-weight:700; border-bottom:1px solid #ddd }
+    .cart-checkout { width:100%; border:0; background:#111; color:#fff; padding:15px; margin-top:18px; font-weight:700 }
+    .checkout-back { border:0; background:none; padding:18px 0 4px; text-decoration:underline; cursor:pointer }
+    .checkout-progress { display:flex; gap:8px; padding:16px 0; color:#777; font-size:11px; border-bottom:1px solid #ddd }
+    .checkout-progress .current { color:#111; font-weight:700 }
+    .checkout-title { font-size:19px; margin:20px 0 14px }
+    .checkout-form { display:grid; gap:12px }
+    .checkout-form label { display:grid; gap:6px; font-size:12px; font-weight:600 }
+    .checkout-form input { width:100%; border:1px solid #aaa; padding:13px 11px; font:inherit; font-weight:400 }
+    .checkout-form .address-row { display:grid; grid-template-columns:1fr auto; gap:8px }
+    .checkout-form .address-row button { border:1px solid #111; background:#fff; padding:0 12px; font-weight:700 }
+    .checkout-options { display:grid; gap:9px; margin:16px 0 }
+    .checkout-option { display:flex; align-items:center; gap:10px; border:1px solid #ddd; padding:14px; font-size:13px }
+    .checkout-option:has(input:checked) { border-color:#111 }
+    .checkout-simulation-note { color:#666; font-size:11px; line-height:1.7 }
+    .checkout-order { background:#f5f5f5; padding:16px; font-size:12px; line-height:1.8; margin:18px 0 }
+    .checkout-success { text-align:center; padding:50px 4px }
+    .checkout-success .checkmark { font-size:42px; margin-bottom:14px }
+    .checkout-success h3 { font-size:21px; margin:0 0 10px }
+    .checkout-success p { font-size:13px; color:#555; line-height:1.7 }
+    .order-card { border:1px solid #ddd; padding:16px; margin:18px 0 }
+    .order-card h3 { margin:0 0 8px; font-size:14px }
+    .order-card p { font-size:12px; line-height:1.7; color:#555; margin:5px 0 }
+    .order-cancel { width:100%; margin-top:12px; padding:12px; border:1px solid #111; background:#fff; font-weight:700; cursor:pointer }
+    .delivery-status { margin-top:15px; padding:13px; background:#f4f4f4; font-size:12px; line-height:1.8 }
+    .delivery-steps { display:flex; justify-content:space-between; gap:5px; margin-top:14px; font-size:10px; color:#777 }
+    .delivery-steps .done, .delivery-steps .current { color:#111; font-weight:700 }
+    .delivery-progress { height:7px; margin:12px 0 5px; background:#ddd; border-radius:8px; overflow:hidden }
+    .delivery-progress span { display:block; height:100%; background:#111; transition:width .4s ease }
+    .delivery-percent { display:flex; justify-content:space-between; font-size:11px; font-weight:700 }
+    .campaign-banner { width:100%; margin:48px 0; background:#211d18; overflow:hidden }
+    .campaign-banner img { display:block; width:100%; height:auto }
+    .showcase-track { height:360vh; position:relative; background:#161717 }
+    .showcase-stage { position:sticky; top:66px; height:calc(100svh - 66px); min-height:520px; overflow:hidden; background:#e9eae7; isolation:isolate }
+    .showcase-backdrop { position:absolute; inset:-8%; z-index:-1; background:radial-gradient(ellipse at 50% 45%,#fff9 0,#f6f6f2 23%,transparent 58%),linear-gradient(115deg,#dbdedb,#f1f1ed 48%,#d9dcda); will-change:transform,background-position }
+    .showcase-backdrop:before { content:''; position:absolute; inset:0; opacity:.28; background:repeating-linear-gradient(115deg,transparent 0 115px,#fff8 116px 117px,transparent 118px 230px); }
+    .showcase-orbit { position:absolute; top:46%; left:50%; width:min(70vw,780px); aspect-ratio:1; border:1px solid #7772; border-radius:50%; transform:translate(-50%,-50%); }
+    .showcase-orbit:before,.showcase-orbit:after { content:''; position:absolute; border:1px solid #7772; border-radius:50%; inset:12%; }
+    .showcase-orbit:after { inset:27%; }
+    .showcase-product { position:absolute; z-index:2; top:45%; left:50%; width:min(64vw,720px); aspect-ratio:1; transform:translate(-50%,-50%); transform-style:preserve-3d; will-change:transform; }
+    .showcase-product img { position:absolute; inset:0; display:block; width:100%; height:100%; object-fit:contain; opacity:0; transform:scale(.94); transition:opacity .18s linear; mix-blend-mode:multiply; }
+    .showcase-product img.is-active { opacity:1; }
+    .showcase-copy { position:absolute; z-index:4; left:6%; bottom:8%; max-width:380px; color:#151515; }
+    .showcase-count { display:inline-block; padding:6px 9px; margin-bottom:12px; background:#a6382b; color:#fff; font-size:10px; font-weight:800; letter-spacing:1.5px; }
+    .showcase-copy h2 { margin:0 0 8px; font-size:clamp(22px,3vw,38px); line-height:1.05; letter-spacing:-1.5px; }
+    .showcase-copy p { margin:0; max-width:330px; color:#555; font-size:12px; line-height:1.7; }
+    .showcase-progress { position:absolute; z-index:4; right:6%; bottom:9%; display:flex; gap:7px; }
+    .showcase-progress span { display:block; width:27px; height:3px; background:#7776; transition:background .2s,width .2s; }
+    .showcase-progress span.is-active { width:43px; background:#a6382b; }
+
+    .accordion {
+      border-bottom: 1px solid #ddd
+    }
+
+    .accbtn {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 17px 0;
+      border: 0;
+      background: white;
+      font-weight: 700;
+      font-size: 13px;
+      text-align: left
+    }
+
+    .accbtn svg {
+      width: 18px;
+      height: 18px;
+      stroke: #111;
+      fill: none;
+      stroke-width: 1.5;
+      transition: transform .2s
+    }
+
+    .accbody {
+      display: none;
+      padding: 0 0 18px;
+      color: #555;
+      font-size: 12px;
+      line-height: 1.9
+    }
+
+    .accordion.open .accbody {
+      display: block
+    }
+
+    .accordion.open .accbtn svg {
+      transform: rotate(45deg)
+    }
+
+    .below {
+      padding: 70px 5.2% 55px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      border-top: 1px solid #eee;
+      margin-top: 44px;
+      background:var(--paper)
+    }
+
+    .story-kicker { color:var(--campaign); font-size:10px; font-weight:700; letter-spacing:1.5px; margin:0 0 14px!important }
+
+    .below h2 {
+      font-size: 25px;
+      margin: 0 0 14px
+    }
+
+    .below p {
+      font-size: 13px;
+      line-height: 1.9;
+      color: #555;
+      margin: 0
+    }
+
+    .morepics {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px
+    }
+
+    .morepics img {
+      width: 100%;
+      background: #f4f4f4
+    }
+
+    .footer {
+      background: #111;
+      color: white;
+      padding: 38px 7% 17px
+    }
+
+    .footgrid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 24px
+    }
+
+    .footgrid h4 {
+      font-size: 12px;
+      margin: 0 0 16px
+    }
+
+    .footgrid a {
+      display: block;
+      font-size: 11px;
+      color: #ddd;
+      text-decoration: none;
+      margin: 11px 0
+    }
+
+    .footbottom {
+      border-top: 1px solid #555;
+      margin-top: 32px;
+      padding-top: 16px;
+      display: flex;
+      justify-content: space-between;
+      color: #aaa;
+      font-size: 10px
+    }
+
+    .footbottom a { color: inherit; text-decoration: none }
+
+    .toast {
+      position: fixed;
+      z-index: 20;
+      bottom: 20px;
+      left: 50%;
+      transform: translate(-50%, 100px);
+      background: #111;
+      color: #fff;
+      padding: 13px 20px;
+      font-size: 12px;
+      transition: .25s
+    }
+
+    .toast.show {
+      transform: translate(-50%, 0)
+    }
+
+    .modal {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, .45);
+      z-index: 30;
+      align-items: center;
+      justify-content: center;
+      padding: 20px
+    }
+
+    .modal.show {
+      display: flex
+    }
+
+    .dialog {
+      background: #fff;
+      width: min(450px, 100%);
+      padding: 28px;
+      position: relative
+    }
+
+    .dialog h3 {
+      font-size: 20px;
+      margin: 0 0 12px
+    }
+
+    .dialog p {
+      font-size: 13px;
+      line-height: 1.7;
+      color: #555
+    }
+
+    .close {
+      position: absolute;
+      right: 15px;
+      top: 12px;
+      border: 0;
+      background: white;
+      font-size: 24px
+    }
+
+    @media(max-width:900px) {
+      .nav {
+        gap: 22px
+      }
+
+      .navlinks {
+        gap: 12px
+      }
+
+      .navlinks a {
+        font-size: 11px
+      }
+
+      .product {
+        grid-template-columns: minmax(0, 1.3fr) minmax(315px, .9fr);
+        gap: 24px
+      }
+
+      .layout {
+        padding-left: 3%;
+        padding-right: 3%
+      }
+    }
+
+    @media(max-width:700px) {
+      .promo {
+        height: 30px;
+        font-size: 10px
+      }
+
+      .utility {
+        display: none
+      }
+
+      .nav {
+        height: 56px;
+        padding: 0 14px;
+        gap: 15px
+      }
+
+      .mobile {
+        display: block;
+        border: 0;
+        background: white;
+        font-size: 20px;
+        padding: 0
+      }
+
+      .logo {
+        width: 38px
+      }
+
+      .logo svg {
+        width: 38px;
+        height: 32px
+      }
+
+      .navlinks {
+        display: none
+      }
+
+      .tools {
+        margin-left: auto;
+        gap: 8px
+      }
+
+      .search {
+        width: 30px;
+        padding: 0;
+        justify-content: center;
+        background: white;
+        border: 0
+      }
+
+      .search input {
+        display: none
+      }
+
+      .search svg {
+        width: 23px;
+        height: 23px
+      }
+
+      .tool {
+        width: 28px
+      }
+
+      .tool.profile {
+        display: none
+      }
+
+      .layout {
+        padding: 12px 0 0
+      }
+
+      .showcase-track { height:320vh }
+      .showcase-stage { top:56px; height:calc(100svh - 56px); min-height:460px }
+      .showcase-orbit { width:92vw; top:42% }
+      .showcase-product { width:min(94vw,560px); top:41% }
+      .showcase-copy { left:18px; bottom:8%; right:18px; max-width:310px }
+      .showcase-copy h2 { font-size:25px }
+      .showcase-copy p { font-size:11px }
+      .showcase-progress { right:18px; bottom:10%; }
+      .showcase-progress span { width:18px }
+      .showcase-progress span.is-active { width:30px }
+
+      .crumb {
+        padding: 0 16px;
+        margin: 0 0 11px
+      }
+
+      .product {
+        display: flex;
+        flex-direction: column;
+        gap: 0
+      }
+
+      .gallery {
+        width: 100%;
+        display: flex;
+        overflow-x: auto;
+        gap: 0;
+        scroll-snap-type: x mandatory;
+        scrollbar-width: none
+      }
+
+      .gallery::-webkit-scrollbar {
+        display: none
+      }
+
+      .shot {
+        min-width: 100vw;
+        width: 100vw;
+        aspect-ratio: 1/1;
+        scroll-snap-align: center
+      }
+
+      .zoom {
+        right: 14px;
+        bottom: 14px
+      }
+
+      .thumbs {
+        position: absolute;
+        display: flex;
+        bottom: 14px;
+        left: 50%;
+        transform: translateX(-50%);
+        gap: 5px
+      }
+
+      .thumbdot {
+        width: 5px;
+        height: 5px;
+        padding: 0;
+        border: 0;
+        border-radius: 50%;
+        background: #aaa
+      }
+
+      .thumbdot.active {
+        background: #111
+      }
+
+      .details {
+        position: static;
+        max-height: none;
+        overflow: visible;
+        padding: 18px 18px 28px;
+        width: 100%
+      }
+
+      .title {
+        font-size: 24px
+      }
+
+      .price {
+        margin-bottom: 20px
+      }
+
+      .swatch {
+        width: 46px;
+        height: 46px
+      }
+
+      .below {
+        display: block;
+        padding: 40px 18px;
+        margin-top: 0
+      }
+
+      .below>div+div {
+        margin-top: 35px
+      }
+
+      .below h2 {
+        font-size: 22px
+      }
+
+      .footgrid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 24px 14px
+      }
+
+      .footbottom {
+        display: block;
+        line-height: 2
+      }
+
+      .footbottom span {
+        display: block
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="promo"><b>무료 배송</b> 49,000원 이상 구매 시 <a href="https://www.adidas.co.kr/help?hcid=HCID_DELIVERY">자세히 보기</a></div>
+  <div class="utility"><a href="https://www.adidas.co.kr/help/contact-us">도움말</a><a href="#orders" id="ordersLink">주문 및 배송조회</a><a href="index.html">스토어 홈</a></div>
+  <nav class="nav"><a class="mobile" href="index.html" aria-label="스토어 홈">☰</a><a class="logo" href="index.html" aria-label="스토어 홈"><img src="adidas 아디다스 로고_01.png" style="width: 70px;"></a>
+    <div class="navlinks"><a href="shop.html?group=outlet">OUTLET</a><a href="shop.html?group=shoes">SHOES</a><a href="shop.html?group=men">MEN</a><a href="shop.html?group=women">WOMEN</a><a href="shop.html?group=kids">KIDS</a><a href="shop.html?group=running">SPORTS</a><a href="shop.html?group=originals">LIFESTYLE</a></div>
+    <div class="tools"><label class="search"><svg viewBox="0 0 24 24">
+          <circle cx="10.8" cy="10.8" r="6.8" fill="none" stroke="#111" stroke-width="1.6" />
+          <path d="m16 16 5 5" stroke="#111" stroke-width="1.6" />
+        </svg><input id="search" placeholder="검색"></label><a class="tool profile" aria-label="프로필" href="account.html"><svg
+          viewBox="0 0 24 24">
+          <circle cx="12" cy="8" r="3.3" />
+          <path d="M5.5 20c.2-3.6 2.6-5.5 6.5-5.5s6.3 1.9 6.5 5.5" />
+        </svg></a><button class="tool" id="navWish" aria-label="위시리스트"><svg viewBox="0 0 24 24">
+          <path d="M20.2 8.9c0 4.3-8.2 10.2-8.2 10.2S3.8 13.2 3.8 8.9A4.1 4.1 0 0 1 12 7.5a4.1 4.1 0 0 1 8.2 1.4Z" />
+        </svg></button><button class="tool" id="bag" aria-label="장바구니 열기"><svg viewBox="0 0 24 24">
+          <path d="M5 8h14l1 13H4L5 8Z" />
+          <path d="M9 9V6a3 3 0 0 1 6 0v3" />
+        </svg><span class="count" id="count">0</span></button></div>
+  </nav>
+  <div class="layout">
+  <div class="crumb"><a href="index.html">홈</a>　›　<a href="shop.html?group=originals">오리지널스</a>　›　<a href="shop.html?group=originals">슈퍼스타</a>　›　SUPERSTAR X JORDAN</div>
+    <main class="product">
+      <section class="gallery" id="gallery" aria-label="상품 이미지">
+        <div class="shot"><img
+            src="사진1_왼쪽측면.png"><button class="zoom" aria-label="이미지 확대"><svg viewBox="0 0 24 24">
+              <circle cx="10.5" cy="10.5" r="6.5" />
+              <path d="m15.5 15.5 5 5M10.5 7v7m-3.5-3.5h7" />
+            </svg></button></div>
+        <div class="shot"><img
+            src="사진2_두켤레.png">
+          </div>
+        <div class="shot"><img
+            src="사진3_위에서본모습.png"></div>
+        <div class="shot"><img
+            src="사진4_밑창.png"></div>
+        <div class="thumbs" id="thumbs"><button class="thumbdot active"></button><button
+            class="thumbdot"></button><button class="thumbdot"></button><button class="thumbdot"></button></div>
+      </section>
+      <aside class="details">
+        <div class="edition-kicker"><span>ADIDAS ORIGINALS × JORDAN</span><span>JORDAN · 23</span></div>
+        <div class="points">더블 포인트 적립 ✨</div>
+        <div class="review-summary"><b>5</b><span class="stars">★★★★★</span><a href="#reviews">(13)</a></div>
+        <h1 class="title">[한정판] SUPERSTAR X JORDAN</h1>
+        <p class="category">역대 최고의 콜라보. 아디다스 x 조던 콜라보 슈퍼스타</p>
+        <p class="price">599,000 원</p>
+        <div class="viewer-count"><span class="live-dot"></span><span>현재 <strong id="viewerCount">1,284</strong>명이 이 상품을 보고 있습니다</span></div>
+        <div class="coupon"><strong>포인트 상품권 적용 가능</strong><br>생일, 신규 가입, 레벨 업 쿠폰 적용 불가<br><a href="https://www.adidas.co.kr/adiclub">공식 아디클럽 혜택 보기 ↗</a></div>
+        <div class="colorlabel">컬러</div>
+        <div class="swatchrow"><span class="swatch selected"><img src="컬러옵션1.png" alt="Cloud White / Core Black / Off White"></span></div>
+        <div class="colorname">Cloud White / Core Black / Off White</div>
+        <div class="sizehead"><strong>구입 가능한 사이즈</strong><a href="https://www.adidas.co.kr/size-chart/size-chart-size-shoes" target="_blank" rel="noopener">사이즈 가이드 ↗</a></div>
+        <div class="sizes" id="sizes"><button class="size">220</button><button class="size">225</button><button
+            class="size">230</button><button class="size">235</button><button class="size">240</button><button
+            class="size">245</button><button class="size">250</button><button class="size">255</button><button
+            class="size">260</button><button class="size">265</button><button class="size">270</button><button
+            class="size">275</button><button class="size unavailable">280 ♧</button><button
+            class="size">285</button><button class="size">290</button><button class="size">295</button></div>
+        <div class="fit"><svg viewBox="0 0 24 24">
+            <path d="M3 15h18M5 15l2-6h9l3 6M7 19h.01M17 19h.01M5 15v3h14v-3" />
+            <path d="M8 12h8" />
+          </svg><span>사이즈별 상세 안내는 공식 사이즈 가이드를 확인하세요.</span></div>
+        <div class="actions"><button class="add" id="add"><span>장바구니 담기</span><span>→</span></button><button
+            class="wish" id="wish" aria-label="위시리스트에 추가"><svg viewBox="0 0 24 24">
+              <path
+                d="M20.2 8.9c0 4.3-8.2 10.2-8.2 10.2S3.8 13.2 3.8 8.9A4.1 4.1 0 0 1 12 7.5a4.1 4.1 0 0 1 8.2 1.4Z" />
+            </svg></button></div>
+        <button class="tracking-cta" id="ordersButton"><span class="tracking-label"><svg viewBox="0 0 24 24"><path d="M2 6h12v11H2zM14 10h4l4 4v3h-8z"/><circle cx="6" cy="19" r="1.7"/><circle cx="18" cy="19" r="1.7"/></svg>주문 및 배송 조회</span><span>조회하기　→</span></button>
+        <p class="notice"><strong>포인트 상품권 적용 가능</strong><br>생일, 신규 가입, 레벨 업 쿠폰 적용 불가</p>
+        <div class="perks" id="delivery">
+          <div class="perk"><svg viewBox="0 0 24 24">
+              <path d="M2.5 6h12v12h-12zM14.5 10h4l3 3v5h-7z" />
+              <circle cx="7" cy="19" r="1.5" />
+              <circle cx="18" cy="19" r="1.5" />
+            </svg><a href="https://www.adidas.co.kr/help?hcid=HCID_DELIVERY">배송 정보는 공식 안내에서 확인 ↗</a></div>
+          <div class="perk"><svg viewBox="0 0 24 24">
+              <path d="M4 7h16v14H4zM8 7V5a4 4 0 0 1 8 0v2" />
+              <path d="m9 14 2 2 4-4" />
+            </svg><a href="https://www.adidas.co.kr/help?hcid=RETURNS_AND_REFUNDS">반품 및 환불 안내 ↗</a></div>
+        </div>
+        <div class="accordion"><button class="accbtn">상품 설명<svg viewBox="0 0 24 24">
+              <path d="M12 5v14M5 12h14" />
+            </svg></button>
+          <div class="accbody">아디다스 오리지널스의 헤리티지를 상징하는 슈퍼스타의 쉘 토와 3-스트라이프에 조던의 점프맨 디테일을 더했습니다. 클라우드 화이트 어퍼와 코어 블랙 스트라이프, 레드 점프맨과 골드 포인트가 조화를 이루는 한정 에디션입니다.</div>
+        </div>
+        <div class="accordion" id="fit"><button class="accbtn">사이즈 & 핏<svg viewBox="0 0 24 24">
+              <path d="M12 5v14M5 12h14" />
+            </svg></button>
+          <div class="accbody"><a href="https://www.adidas.co.kr/size-chart/size-chart-size-shoes">공식 신발 사이즈 가이드 보기 ↗</a></div>
+        </div>
+        <div class="accordion"><button class="accbtn">배송 및 반품<svg viewBox="0 0 24 24">
+              <path d="M12 5v14M5 12h14" />
+            </svg></button>
+          <div class="accbody"><a href="https://www.adidas.co.kr/help?hcid=HCID_DELIVERY">공식 배송 안내 ↗</a>　<a href="https://www.adidas.co.kr/help?hcid=RETURNS_AND_REFUNDS">공식 반품 안내 ↗</a></div>
+        </div>
+        <div class="accordion" id="reviews"><button class="accbtn">리뷰 (13)<svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14" /></svg></button>
+          <div class="accbody"><div class="review-list">
+            <article class="review-item"><header><b>민지</b><span><span class="stars">★★★★★</span> <time>2026.09.18</time></span></header><p>화이트와 블랙 조합이 깔끔하고 빨간 점프맨 포인트가 생각보다 잘 어울려요. 사진보다 실물이 더 예쁠 것 같은 디자인입니다.</p></article>
+            <article class="review-item"><header><b>지훈</b><span><span class="stars">★★★★★</span> <time>2026.09.12</time></span></header><p>슈퍼스타 쉘 토에 조던 디테일을 더한 아이디어가 마음에 들어요. 옆모습이 특히 멋집니다.</p></article>
+            <article class="review-item"><header><b>서연</b><span><span class="stars">★★★★★</span> <time>2026.09.08</time></span></header><p>클래식한 실루엣이라 여러 옷에 쉽게 매치할 수 있을 것 같아요. 골드 키링 디테일도 매력적이에요.</p></article>
+            <article class="review-item"><header><b>현우</b><span><span class="stars">★★★★★</span> <time>2026.08.29</time></span></header><p>아디다스와 조던의 상징을 한 켤레에 담은 게 재미있네요. 컬러 밸런스가 좋아서 데일리로 신기 좋겠습니다.</p></article>
+            <article class="review-item"><header><b>유진</b><span><span class="stars">★★★★★</span> <time>2026.08.22</time></span></header><p>위에서 본 쉐입이 예쁘고 밑창 패턴도 클래식해요. 협업 제품다운 작은 포인트들이 마음에 듭니다.</p></article>
+            <article class="review-item"><header><b>도윤</b><span><span class="stars">★★★★★</span> <time>2026.08.17</time></span></header><p>검정 스트라이프와 점프맨 로고가 잘 어울립니다. 과하지 않아서 평소 신발로도 부담 없어 보여요.</p></article>
+            <article class="review-item"><header><b>수빈</b><span><span class="stars">★★★★★</span> <time>2026.08.10</time></span></header><p>두 브랜드의 특징이 자연스럽게 섞여 있어요. 흰색 바탕이라 깨끗한 느낌이고 디테일은 확실합니다.</p></article>
+            <article class="review-item"><header><b>준서</b><span><span class="stars">★★★★★</span> <time>2026.08.02</time></span></header><p>옆면의 작은 로고와 뒤꿈치 부분이 포인트네요. 스니커즈 컬렉션에 하나 추가하고 싶은 디자인입니다.</p></article>
+            <article class="review-item"><header><b>예린</b><span><span class="stars">★★★★★</span> <time>2026.07.26</time></span></header><p>단정한 화이트 스니커즈에 레드 포인트가 들어가서 귀여워요. 청바지나 트랙 팬츠와 잘 어울릴 것 같아요.</p></article>
+            <article class="review-item"><header><b>태민</b><span><span class="stars">★★★★★</span> <time>2026.07.19</time></span></header><p>쉘 토와 3-스트라이프가 주는 클래식함은 그대로고 점프맨 자수가 새롭습니다. 디테일 구성이 탄탄해 보여요.</p></article>
+            <article class="review-item"><header><b>하은</b><span><span class="stars">★★★★★</span> <time>2026.07.11</time></span></header><p>두 켤레를 함께 둔 사진이 특히 멋져요. 전체적으로 깔끔해서 선물용 디자인으로도 좋을 것 같습니다.</p></article>
+            <article class="review-item"><header><b>민석</b><span><span class="stars">★★★★★</span> <time>2026.07.04</time></span></header><p>밑창까지 클래식한 느낌이라 마음에 들어요. 조던 협업 요소가 눈에 띄면서도 신발 전체를 해치지 않네요.</p></article>
+            <article class="review-item"><header><b>다은</b><span><span class="stars">★★★★★</span> <time>2026.06.27</time></span></header><p>익숙한 슈퍼스타 모양에 새로운 이야기를 더한 것 같아요. 레드 로고가 흰색 갑피에서 예쁘게 살아납니다.</p></article>
+          </div></div>
+        </div>
+      </aside>
+    </main>
+  </div>
+  <section class="campaign-banner" aria-label="SUPERSTAR X JORDAN 캠페인 배너"><img src="superstar-jordan-banner.png" alt="adidas와 Jordan의 SUPERSTAR X JORDAN 캠페인 이미지"></section>
+  <section class="showcase-track" id="productShowcase" aria-label="SUPERSTAR X JORDAN 제품 쇼케이스">
+    <div class="showcase-stage">
+      <div class="showcase-backdrop" aria-hidden="true"></div><div class="showcase-orbit" aria-hidden="true"></div>
+      <div class="showcase-product" id="showcaseProduct">
+        <img src="사진1_왼쪽측면.png" alt="SUPERSTAR X JORDAN 측면 디테일" class="is-active">
+        <img src="사진2_두켤레.png" alt="SUPERSTAR X JORDAN 사선 디테일">
+        <img src="사진3_위에서본모습.png" alt="SUPERSTAR X JORDAN 탑뷰 디테일">
+        <img src="사진4_밑창.png" alt="SUPERSTAR X JORDAN 밑창 디테일">
+      </div>
+      <div class="showcase-copy"><span class="showcase-count" id="showcaseCount">01 / 04 · PROFILE</span><h2 id="showcaseTitle">SUPERSTAR X JORDAN</h2><p id="showcaseDescription">쉘 토와 3-스트라이프, 점프맨 디테일을 측면에서 살펴보세요.</p></div>
+      <div class="showcase-progress" aria-hidden="true"><span class="is-active"></span><span></span><span></span><span></span></div>
+    </div>
+  </section>
+  <section class="below">
+    <div>
+      <p class="story-kicker">TWO LEGENDS. ONE CLASSIC.</p>
+      <h2>SUPERSTAR X JORDAN</h2>
+      <p><strong>두 헤리티지의 만남, 클래식의 새로운 장면.</strong></p>
+      <p>아디다스 오리지널스의 헤리티지를 상징하는 슈퍼스타의 쉘 토와 3-스트라이프에 조던의 점프맨 디테일을 더했습니다. 서로 다른 두 아이콘의 유산을 하나의 실루엣에 담아 절제된 존재감과 선명한 개성을 완성합니다.</p>
+      <p>클라우드 화이트 어퍼와 코어 블랙 스트라이프가 정제된 대비를 이루고, 레드 점프맨과 섬세한 골드 포인트가 특별한 인상을 더합니다. 익숙한 클래식의 균형은 유지하면서 가까이 볼수록 협업의 디테일이 드러납니다.</p>
+      <p>두 브랜드의 헤리티지를 오늘의 스타일로 풀어낸 한정 에디션. 일상에 자연스럽게 어우러지면서도 오래 기억될 존재감을 선사합니다.</p>
+    </div>
+    <div class="morepics"><img src="사진3_위에서본모습.png" alt="SUPERSTAR X JORDAN 위에서 본 모습"><img src="사진4_밑창.png" alt="SUPERSTAR X JORDAN 밑창"></div>
+  </section>
+  <footer class="footer">
+    <div class="footgrid">
+      <div>
+        <h4>PRODUCTS</h4><a href="https://www.adidas.co.kr/shoes">신발</a><a href="https://www.adidas.co.kr/clothing">의류</a><a href="https://www.adidas.co.kr/accessories">용품</a><a href="https://www.adidas.co.kr/new_arrivals">신제품</a><a href="https://www.adidas.co.kr/outlet">아울렛</a>
+      </div>
+      <div>
+        <h4>SPORTS</h4><a href="https://www.adidas.co.kr/running">러닝</a><a href="https://www.adidas.co.kr/training">트레이닝</a><a href="https://www.adidas.co.kr/football">축구</a><a href="https://www.adidas.co.kr/golf">골프</a>
+      </div>
+      <div>
+        <h4>COLLECTIONS</h4><a href="https://www.adidas.co.kr/originals">오리지널스</a><a href="https://www.adidas.co.kr/superstar">슈퍼스타</a><a href="https://www.adidas.co.kr/samba">삼바</a><a href="https://www.adidas.co.kr/gazelle">가젤</a>
+      </div>
+      <div>
+        <h4>SUPPORT</h4><a href="https://www.adidas.co.kr/help/contact-us">고객센터</a><a href="https://www.adidas.co.kr/help?hcid=HCID_DELIVERY">배송</a><a href="https://www.adidas.co.kr/help?hcid=RETURNS_AND_REFUNDS">반품 및 환불</a><a href="https://www.adidas.co.kr/order-tracker">주문 조회</a>
+      </div>
+      <div>
+        <h4>COMPANY INFO</h4><a href="https://www.adidas-group.com/en/about/">회사 소개</a><a href="https://careers.adidas-group.com/">채용 정보</a><a href="https://www.adidas.co.kr/adiclub">아디클럽</a><a href="https://www.adidas-group.com/en/sustainability/">지속 가능성</a>
+      </div>
+    </div>
+    <div class="footbottom"><span><a href="https://www.adidas.co.kr/help/company-information/what-is-the-privacy-policy">개인정보 처리방침</a>　<a href="https://www.adidas.co.kr/help/terms-and-conditions">이용약관</a></span><span>© adidas Korea, LLC.</span>
+    </div>
+  </footer>
+  <div class="cart-shade" id="cartShade" aria-hidden="true"><section class="cart-panel" role="dialog" aria-modal="true" aria-labelledby="cartTitle"><header class="cart-head"><h2 id="cartTitle">장바구니 (0)</h2><button class="cart-close" id="cartClose" aria-label="장바구니 닫기">×</button></header><div id="cartContents"></div></section></div>
+  <div class="toast" id="toast" role="status"></div>
+  <script src="catalog.js"></script>
+  <script>
+    let cart = [];
+    try { cart = JSON.parse(localStorage.getItem('adidasStoreCart') || '[]'); } catch { cart = []; }
+    cart = cart.map(item => ({ ...item, id: item.id || 'superstar-jordan' }));
+    let orders = [];
+    try { orders = JSON.parse(localStorage.getItem('adidasStoreOrders') || '[]'); } catch { orders = []; }
+    orders = orders.filter(order => !order.cancelledAt).map(order => ({ ...order, createdAt: order.createdAt || (order.orderTime ? new Date(order.orderTime).getTime() : Date.now()) }));
+    try { localStorage.setItem('adidasStoreOrders', JSON.stringify(orders)); } catch { }
+    let selectedSize = '';
+    const cartShade = document.getElementById('cartShade');
+    const cartContents = document.getElementById('cartContents');
+    const toast = document.getElementById('toast');
+    const storeProduct = id => (window.ADIDAS_CATALOG || []).find(product => product.id === id) || window.ADIDAS_CATALOG[0];
+    const itemPrice = item => item.price || storeProduct(item.id).price;
+    let toastTimer;
+    let ordersRefreshTimer;
+    const viewerCount = document.getElementById('viewerCount');
+    let currentViewerCount = Math.floor(Math.random() * 2201) + 500;
+    viewerCount.textContent = currentViewerCount.toLocaleString('ko-KR');
+    setInterval(() => {
+      currentViewerCount = Math.max(500, Math.min(2700, currentViewerCount + Math.floor(Math.random() * 61) - 30));
+      viewerCount.textContent = currentViewerCount.toLocaleString('ko-KR');
+    }, 12000);
+    const showcaseTrack = document.getElementById('productShowcase');
+    const showcaseStage = showcaseTrack.querySelector('.showcase-stage');
+    const showcaseProduct = document.getElementById('showcaseProduct');
+    const showcaseImages = [...showcaseProduct.querySelectorAll('img')];
+    const showcaseBackdrop = showcaseTrack.querySelector('.showcase-backdrop');
+    const showcaseOrbit = showcaseTrack.querySelector('.showcase-orbit');
+    const showcaseCount = document.getElementById('showcaseCount');
+    const showcaseDescription = document.getElementById('showcaseDescription');
+    const showcaseIndicators = [...showcaseTrack.querySelectorAll('.showcase-progress span')];
+    const showcaseFrames = [
+      { label:'01 / 04 · PROFILE', description:'쉘 토와 3-스트라이프, 점프맨 디테일을 측면에서 살펴보세요.' },
+      { label:'02 / 04 · ANGLE', description:'사선으로 마주한 실루엣과 어퍼의 레이어를 확인해보세요.' },
+      { label:'03 / 04 · TOP VIEW', description:'레이스 라인과 토 쉘의 패턴을 위에서 내려다봅니다.' },
+      { label:'04 / 04 · OUTSOLE', description:'헤링본 패턴 밑창까지 협업의 디테일을 완성합니다.' }
+    ];
+    let showcaseFrame = 0;
+    function moveShowcaseWithScroll() {
+      if (showcaseFrame) return;
+      showcaseFrame = requestAnimationFrame(() => {
+        const bounds = showcaseTrack.getBoundingClientRect();
+        const travel = Math.max(1, bounds.height - showcaseStage.clientHeight);
+        const progress = Math.max(0, Math.min(1, -bounds.top / travel));
+        const framePosition = progress * (showcaseImages.length - 1);
+        const firstFrame = Math.min(showcaseImages.length - 2, Math.floor(framePosition));
+        const mix = framePosition >= showcaseImages.length - 1 ? 1 : framePosition - firstFrame;
+        const easedMix = mix * mix * (3 - 2 * mix);
+        showcaseImages.forEach((img, index) => {
+          const opacity = index === firstFrame ? 1 - easedMix : index === firstFrame + 1 ? easedMix : 0;
+          img.style.opacity = opacity;
+          img.classList.toggle('is-active', opacity >= .5);
+        });
+        const rotateY = -38 * (1 - Math.min(1, progress / .36));
+        const rotateZ = -7 * (1 - Math.min(1, progress / .3));
+        const rotateX = progress < .38 ? 0 : 8 * Math.min(1, (progress - .38) / .22);
+        showcaseProduct.style.transform = `translate(-50%,-50%) perspective(1300px) rotateY(${rotateY}deg) rotateX(${rotateX}deg) rotateZ(${rotateZ}deg)`;
+        showcaseBackdrop.style.transform = `translate3d(${(progress - .5) * 72}px,${(progress - .5) * -24}px,0) scale(1.05)`;
+        showcaseOrbit.style.transform = `translate(-50%,-50%) rotate(${progress * 115}deg) scale(${1 + Math.sin(progress * Math.PI) * .08})`;
+        const active = Math.min(showcaseFrames.length - 1, Math.round(framePosition));
+        showcaseCount.textContent = showcaseFrames[active].label;
+        showcaseDescription.textContent = showcaseFrames[active].description;
+        showcaseIndicators.forEach((indicator, index) => indicator.classList.toggle('is-active', index === active));
+        showcaseFrame = 0;
+      });
+    }
+    window.addEventListener('scroll', moveShowcaseWithScroll, { passive:true });
+    window.addEventListener('resize', moveShowcaseWithScroll);
+    moveShowcaseWithScroll();
+    function showToast(message) {
+      toast.textContent = message;
+      toast.classList.add('show');
+      clearTimeout(toastTimer);
+      toastTimer = setTimeout(() => toast.classList.remove('show'), 2300);
+    }
+    function updateCart() {
+      const count = cart.reduce((sum, item) => sum + item.qty, 0);
+      document.getElementById('count').textContent = count;
+      document.getElementById('cartTitle').textContent = `장바구니 (${count})`;
+      try { localStorage.setItem('adidasStoreCart', JSON.stringify(cart)); } catch { }
+      if (!count) {
+        cartContents.innerHTML = '<div class="cart-empty">장바구니가 비어 있습니다.</div>';
+        return;
+      }
+      const total = cart.reduce((sum, item) => sum + item.qty * itemPrice(item), 0);
+      cartContents.innerHTML = cart.map((item, index) => { const product=storeProduct(item.id);return `<article class="cart-row"><img src="${product.image}" alt="${product.name}"><div><h3>${product.name}</h3><p>${product.color}</p><p>사이즈: ${item.size} · ${itemPrice(item).toLocaleString('ko-KR')} 원</p><div class="cart-controls"><button data-action="minus" data-index="${index}" aria-label="수량 줄이기">−</button><span>${item.qty}</span><button data-action="plus" data-index="${index}" aria-label="수량 늘리기">+</button><button class="cart-remove" data-action="remove" data-index="${index}">삭제</button></div></div></article>`;}).join('') + `<div class="cart-total"><span>상품 합계</span><span>${total.toLocaleString('ko-KR')} 원</span></div><button class="cart-checkout" data-checkout-start>주문 정보 입력</button>`;
+    }
+    function renderCheckout(step = 1, values = {}) {
+      const subtotal = cart.reduce((sum, item) => sum + item.qty * itemPrice(item), 0);
+      const shippingFee = values.shippingOption === 'express' ? 5500 : 0;
+      const total = subtotal + shippingFee;
+      let member = {}; try { member = JSON.parse(localStorage.getItem('adidasStoreMember') || '{}'); } catch { }
+      const safe = value => String(value || '').replace(/[&<>"']/g, char => ({ '&':'&amp;', '<':'&lt;', '>':'&gt;', '"':'&quot;', "'":'&#39;' }[char]));
+      const progress = `<div class="checkout-progress"><span class="${step === 1 ? 'current' : ''}">1 배송 정보</span><span>›</span><span class="${step === 2 ? 'current' : ''}">2 결제수단</span><span>›</span><span class="${step === 3 ? 'current' : ''}">3 주문 확인</span></div>`;
+      const back = `<button class="checkout-back" data-checkout-back>‹ 장바구니로</button>`;
+      const summary = `<div class="checkout-order">${cart.map(item=>`${storeProduct(item.id).name} · ${item.size} · ${item.qty}개`).join('<br>')}<br>상품 합계 <strong>${subtotal.toLocaleString('ko-KR')} 원</strong><br>배송비 <strong>${shippingFee ? shippingFee.toLocaleString('ko-KR')+' 원' : '무료'}</strong><br>총 결제 금액 <strong>${total.toLocaleString('ko-KR')} 원</strong></div>`;
+      if (step === 1) cartContents.innerHTML = `${back}${progress}<h3 class="checkout-title">배송 정보</h3><form class="checkout-form" id="shippingForm"><label>받는 분<input name="name" autocomplete="name" required value="${safe(values.name ?? member.name)}" placeholder="이름"></label><label>휴대폰 번호<input name="phone" type="tel" autocomplete="tel" required value="${safe(values.phone ?? member.phone)}" placeholder="010-0000-0000"></label><label>배송 주소<div class="address-row"><input name="address" autocomplete="street-address" required value="${safe(values.address ?? member.address)}" placeholder="기본 주소"><button type="button" data-address-search>주소 검색</button></div></label><label>상세 주소<input name="detail" required value="${safe(values.detail ?? member.detail)}" placeholder="상세 주소 입력"></label><button class="cart-checkout" type="submit">결제수단 선택</button></form>`;
+      if (step === 2) cartContents.innerHTML = `${back}${progress}<h3 class="checkout-title">배송 옵션</h3><form id="paymentForm"><div class="checkout-options"><label class="checkout-option"><input type="radio" name="shippingOption" value="standard" ${values.shippingOption !== 'express' ? 'checked' : ''}> 일반 배송 · 무료</label><label class="checkout-option"><input type="radio" name="shippingOption" value="express" ${values.shippingOption === 'express' ? 'checked' : ''}> 빠른 배송 · 5,500원 · 즉시 발송, 3~5시간 내 도착</label></div><h3 class="checkout-title">결제수단</h3>${summary}<div class="checkout-options"><label class="checkout-option"><input type="radio" name="payment" value="card" checked> 신용카드</label><label class="checkout-option"><input type="radio" name="payment" value="simple"> 간편결제</label><label class="checkout-option"><input type="radio" name="payment" value="transfer"> 계좌이체</label></div><p class="checkout-simulation-note">결제 정보 입력 없이 주문 확인 화면으로 진행합니다. 실제 결제는 진행되지 않습니다.</p><button class="cart-checkout" type="submit">주문 확인</button></form>`;
+      if (step === 3) cartContents.innerHTML = `${back}${progress}<h3 class="checkout-title">주문 확인</h3>${summary}<p style="font-size:12px;line-height:1.8;color:#555">${safe(values.name)} · ${safe(values.phone)}<br>${safe(values.address)} ${safe(values.detail)}<br>배송 옵션: ${values.shippingOption === 'express' ? '빠른 배송 · 5,500원 (즉시 발송, 3~5시간 내 도착)' : '일반 배송 · 무료'}<br>결제수단: ${values.payment === 'card' ? '신용카드' : values.payment === 'simple' ? '간편결제' : '계좌이체'}</p><div class="cart-total"><span>총 결제 금액</span><span>${total.toLocaleString('ko-KR')} 원</span></div><p class="checkout-simulation-note">결제를 누르면 이 브라우저에 주문 내역만 생성됩니다.</p><button class="cart-checkout" data-place-order>결제 완료</button>`;
+      if (step === 4) cartContents.innerHTML = `<div class="checkout-success"><div class="checkmark">✓</div><h3>주문이 완료되었습니다</h3><p>주문번호 <strong>${values.orderId || ''}</strong><br>주문 및 배송조회에서 진행 상황을 확인할 수 있습니다.</p><button class="cart-checkout" data-order-done>쇼핑 계속하기</button><button class="checkout-back" data-open-orders>주문 내역 보기</button></div>`;
+    }
+    function openOrders() {
+      document.getElementById('cartTitle').textContent = '주문 및 배송조회';
+      if (!orders.length) cartContents.innerHTML = '<div class="cart-empty">조회할 주문 내역이 없습니다.</div>';
+      else {
+        const stages = [
+          { title: '주문 접수', detail: '주문이 접수되었습니다.' },
+          { title: '상품 준비 중', detail: '주문이 확인되어 상품을 준비하고 있습니다.' },
+          { title: '배송 중', detail: '상품이 배송 중입니다.' },
+          { title: '배송 완료', detail: '상품 배송이 완료되었습니다.' }
+        ];
+        cartContents.innerHTML = `<h3 class="checkout-title">주문 내역</h3>` + orders.map(order => {
+          const createdAt = order.createdAt || Date.now();
+          const orderDate = new Date(createdAt);
+          const prepareAt = createdAt + 30 * 60 * 1000;
+          const dispatchDate = new Date(orderDate);
+          if (order.shippingOption === 'express') dispatchDate.setTime(createdAt);
+          else { const cutoff = new Date(orderDate); cutoff.setHours(22, 30, 0, 0); if (createdAt > cutoff.getTime()) dispatchDate.setDate(dispatchDate.getDate() + 1); dispatchDate.setHours(23, 0, 0, 0); }
+          const dispatchAt = dispatchDate.getTime();
+          const deliveryAt = order.shippingOption === 'express' ? new Date(order.deliveryEtaAt || createdAt + 4 * 60 * 60 * 1000) : new Date(dispatchDate);
+          if (order.shippingOption !== 'express') { deliveryAt.setDate(deliveryAt.getDate() + 1); deliveryAt.setHours(9, 0, 0, 0); }
+          const now = Date.now();
+          const stageIndex = order.cancelledAt ? -1 : now >= deliveryAt.getTime() ? 3 : now >= dispatchAt ? 2 : now >= prepareAt ? 1 : 0;
+          const percent = stageIndex === 3 ? 100 : stageIndex === 2 ? Math.min(99, Math.floor((now - dispatchAt) / (deliveryAt.getTime() - dispatchAt) * 100)) : 0;
+          const arrivalLabel = deliveryAt.toLocaleString('ko-KR', { year:'numeric', month:'long', day:'numeric', hour:'numeric', minute:'2-digit' });
+          const dispatchLabel = dispatchDate.toLocaleString('ko-KR', { month:'long', day:'numeric', hour:'numeric', minute:'2-digit' });
+          const tracking = stageIndex >= 2 ? `<div class="delivery-progress"><span style="width:${percent}%"></span></div><div class="delivery-percent"><span>배송 진행률</span><span>${percent}%</span></div>` : '';
+          const status = order.cancelledAt ? `<div class="delivery-status"><strong>주문 취소</strong><br>주문이 취소되었습니다.</div>` : `<div class="delivery-status"><strong>${stages[stageIndex].title}</strong><br>${order.shippingOption === 'express' ? '빠른 배송 · 주문 즉시 배송 시작' : stages[stageIndex].detail}<br>${order.shippingOption === 'express' ? '발송 시작: 주문 즉시 · 주문 후 3~5시간 내 도착 예정' : `발송 예정: ${dispatchLabel}`}<br>${stageIndex === 3 ? '도착 시각' : '도착 예정'}: ${arrivalLabel}${tracking}<div class="delivery-steps">${stages.map((stage, index) => `<span class="${index < stageIndex ? 'done' : index === stageIndex ? 'current' : ''}">${stage.title}</span>`).join('')}</div></div>`;
+          const cancel = !order.cancelledAt && now < prepareAt ? `<button class="order-cancel" data-cancel-order="${order.id}">주문 취소</button>` : '';
+          const orderClock = new Date(createdAt).toLocaleTimeString('ko-KR', { hour:'2-digit', minute:'2-digit', hour12:false });
+          const itemNames = [...new Set(order.items.map(item => item.name || storeProduct(item.id).name))];
+          const itemLines = order.items.map(item => `${item.name || storeProduct(item.id).name} · ${item.size} · ${item.qty}개`).join('<br>');
+          return `<article class="order-card"><h3>${itemNames.join(', ')}</h3><p>주문번호 ${order.id}<br>주문일 ${order.date} ${orderClock}<br>${itemLines}<br>${order.shippingOption === 'express' ? '빠른 배송비 5,500원 포함<br>' : ''}결제 금액 ${order.total.toLocaleString('ko-KR')} 원</p>${status}${cancel}</article>`;
+        }).join('');
+      }
+      cartShade.classList.add('open');
+      cartShade.setAttribute('aria-hidden', 'false');
+      clearInterval(ordersRefreshTimer);
+      ordersRefreshTimer = setInterval(() => { if (cartShade.classList.contains('open') && document.getElementById('cartTitle').textContent === '주문 및 배송조회') openOrders(); }, 1000);
+    }
+    function openCart() {
+      updateCart();
+      cartShade.classList.add('open');
+      cartShade.setAttribute('aria-hidden', 'false');
+    }
+    function closeCart() {
+      cartShade.classList.remove('open');
+      cartShade.setAttribute('aria-hidden', 'true');
+      clearInterval(ordersRefreshTimer);
+    }
+    document.querySelectorAll('.size:not(.unavailable)').forEach(button => button.addEventListener('click', () => {
+      document.querySelectorAll('.size').forEach(size => size.classList.remove('selected'));
+      button.classList.add('selected');
+      selectedSize = button.textContent.trim();
+    }));
+    document.getElementById('add').addEventListener('click', () => {
+      if (!selectedSize) {
+        showToast('사이즈를 먼저 선택해 주세요.');
+        document.getElementById('sizes').scrollIntoView({ behavior: 'smooth', block: 'center' });
+        return;
+      }
+      const item = cart.find(product => product.id === 'superstar-jordan' && product.size === selectedSize);
+      if (item) item.qty++;
+      else cart.push({ id: 'superstar-jordan', size: selectedSize, qty: 1 });
+      openCart();
+    });
+    document.getElementById('bag').addEventListener('click', openCart);
+    document.getElementById('ordersLink').addEventListener('click', event => { event.preventDefault(); openOrders(); });
+    document.getElementById('ordersButton').addEventListener('click', openOrders);
+    document.getElementById('cartClose').addEventListener('click', closeCart);
+    cartShade.addEventListener('click', event => { if (event.target === cartShade) closeCart(); });
+    cartContents.addEventListener('click', event => {
+      const cancelButton = event.target.closest('[data-cancel-order]');
+      if (cancelButton) {
+        const order = orders.find(item => item.id === cancelButton.dataset.cancelOrder);
+        if (order && !order.cancelledAt && Date.now() - order.createdAt < 30 * 60 * 1000) {
+          order.cancelledAt = Date.now();
+          try { localStorage.setItem('adidasStoreOrders', JSON.stringify(orders)); } catch { }
+          openOrders();
+        }
+        return;
+      }
+      if (event.target.closest('[data-checkout-start]')) { renderCheckout(1); return; }
+      if (event.target.closest('[data-checkout-back]')) { updateCart(); return; }
+      if (event.target.closest('[data-address-search]')) { showToast('주소를 입력해 주세요.'); return; }
+      if (event.target.closest('[data-open-orders]')) { openOrders(); return; }
+      if (event.target.closest('[data-place-order]')) {
+        const values = JSON.parse(cartContents.dataset.checkoutValues || '{}');
+        const id = `AD-${Date.now().toString().slice(-8)}`;
+        const subtotal = cart.reduce((sum, item) => sum + item.qty * itemPrice(item), 0);
+        const shippingFee = values.shippingOption === 'express' ? 5500 : 0;
+        const total = subtotal + shippingFee;
+        const orderTime = new Date().toISOString();
+        const createdAt = new Date(orderTime).getTime();
+        const deliveryEtaAt = values.shippingOption === 'express' ? createdAt + (3 + Math.random() * 2) * 60 * 60 * 1000 : null;
+        orders.unshift({ id, date: new Date().toLocaleDateString('ko-KR'), orderTime, createdAt, deliveryEtaAt, items: cart.map(item => ({...item,name:storeProduct(item.id).name,price:itemPrice(item)})), subtotal, shippingOption: values.shippingOption || 'standard', shippingFee, total, customer: values });
+        try { localStorage.setItem('adidasStoreOrders', JSON.stringify(orders)); } catch { }
+        cart = []; updateCart(); renderCheckout(4, { ...values, orderId: id }); return;
+      }
+      if (event.target.closest('[data-order-done]')) { closeCart(); updateCart(); return; }
+      const button = event.target.closest('[data-action]');
+      if (!button) return;
+      const index = Number(button.dataset.index);
+      if (button.dataset.action === 'plus') cart[index].qty++;
+      if (button.dataset.action === 'minus') cart[index].qty--;
+      if (button.dataset.action === 'remove' || cart[index]?.qty <= 0) cart.splice(index, 1);
+      updateCart();
+    });
+    cartContents.addEventListener('submit', event => {
+      event.preventDefault();
+      if (event.target.id === 'shippingForm') {
+        const data = Object.fromEntries(new FormData(event.target).entries());
+        renderCheckout(2, data);
+        cartContents.dataset.checkoutValues = JSON.stringify(data);
+      } else if (event.target.id === 'paymentForm') {
+        const values = JSON.parse(cartContents.dataset.checkoutValues || '{}');
+        const formData = new FormData(event.target);
+        values.shippingOption = formData.get('shippingOption') || 'standard';
+        values.payment = formData.get('payment');
+        cartContents.dataset.checkoutValues = JSON.stringify(values);
+        renderCheckout(3, values);
+      }
+    });
+    cartContents.addEventListener('change', event => {
+      if (event.target.name === 'shippingOption') {
+        const values = JSON.parse(cartContents.dataset.checkoutValues || '{}');
+        values.shippingOption = event.target.value;
+        values.payment = new FormData(event.target.form).get('payment');
+        cartContents.dataset.checkoutValues = JSON.stringify(values);
+        renderCheckout(2, values);
+      }
+    });
+    document.getElementById('wish').addEventListener('click', event => {
+      const button = event.currentTarget;
+      const savedWish = JSON.parse(localStorage.getItem('adidasStoreWish') || '[]');
+      const nextWish = savedWish.includes('superstar-jordan') ? savedWish.filter(id => id !== 'superstar-jordan') : [...savedWish, 'superstar-jordan'];
+      button.classList.toggle('active', nextWish.includes('superstar-jordan'));
+      try { localStorage.setItem('adidasStoreWish', JSON.stringify(nextWish)); localStorage.setItem('superstarJordanWish', String(button.classList.contains('active'))); } catch { }
+      showToast(button.classList.contains('active') ? '위시리스트에 저장했습니다.' : '위시리스트에서 삭제했습니다.');
+    });
+    try {
+      const savedWish = JSON.parse(localStorage.getItem('adidasStoreWish') || '[]');
+      if (localStorage.getItem('superstarJordanWish') === 'true' && !savedWish.includes('superstar-jordan')) savedWish.push('superstar-jordan');
+      document.getElementById('wish').classList.toggle('active', savedWish.includes('superstar-jordan'));
+      localStorage.setItem('adidasStoreWish', JSON.stringify(savedWish));
+    } catch { }
+    updateCart();
+    document.getElementById('navWish').addEventListener('click', () => { window.location.href = 'account.html?tab=wishlist'; });
+    document.querySelectorAll('.accbtn').forEach(button => button.addEventListener('click', () => button.parentElement.classList.toggle('open')));
+    document.querySelector('.review-summary a').addEventListener('click', () => {
+      document.getElementById('reviews').classList.add('open');
+    });
+    document.querySelectorAll('.thumbdot').forEach((button, index) => button.addEventListener('click', () => {
+      document.getElementById('gallery').scrollTo({ left: index * innerWidth, behavior: 'smooth' });
+      document.querySelectorAll('.thumbdot').forEach((dot, i) => dot.classList.toggle('active', i === index));
+    }));
+    document.getElementById('gallery').addEventListener('scroll', () => {
+      if (innerWidth < 700) {
+        const index = Math.round(document.getElementById('gallery').scrollLeft / innerWidth);
+        document.querySelectorAll('.thumbdot').forEach((dot, i) => dot.classList.toggle('active', i === index));
+      }
+    });
+    document.getElementById('search').addEventListener('keydown', event => {
+      if (event.key === 'Enter' && event.target.value.trim()) {
+        window.location.href = 'shop.html?group=all&q=' + encodeURIComponent(event.target.value.trim());
+      }
+    });
+  </script>
+</body>
+
+</html>
+
