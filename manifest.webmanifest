@@ -1,0 +1,21 @@
+{
+  "id": "./index.html",
+  "name": "adidas Originals Store",
+  "short_name": "adidas Store",
+  "description": "아디다스 오리지널스 스토어",
+  "lang": "ko-KR",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "any",
+  "background_color": "#ffffff",
+  "theme_color": "#111111",
+  "icons": [
+    {
+      "src": "./adidas_logo.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}
