@@ -1,4 +1,4 @@
-const CACHE_NAME = 'adidas-store-shell-v1';
+const CACHE_NAME = 'adidas-store-shell-v7';
 const APP_SHELL = [
   './',
   './index.html',
@@ -9,13 +9,12 @@ const APP_SHELL = [
   './store.css',
   './account.css',
   './catalog.js',
+  './catalog-extra.js',
   './store.js',
   './account.js',
   './pwa.js',
   './manifest.webmanifest',
-  './adidas-app-icon.svg',
-  './adidas-app-192.png',
-  './adidas-app-512.png',
+  './adidas_logo.png',
   './사진1_왼쪽측면.png',
   './사진2_두켤레.png',
   './사진3_위에서본모습.png',

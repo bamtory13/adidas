@@ -71,10 +71,12 @@
       const stageList=['주문 접수','상품 준비 중','배송 중','배송 완료'];
       const timeline=!order.cancelledAt?`<div class="tracking-timeline">${stageList.map((name,index)=>`<div class="tracking-step ${index<stage?'done':index===stage?'current':''}"><i></i><span>${name}</span></div>`).join('')}</div>`:'';
       const destination=[order.customer?.address,order.customer?.detail].filter(Boolean).join(' ');
-      const mapLink=destination?`<a class="tracking-map-link" href="https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(destination)}" target="_blank" rel="noopener">배송지 지도 보기 ↗</a>`:'';
+      const origin='경기도 평택시 도일동 1175-3번지';
+      const mapLink=destination?`<a class="tracking-map-link" href="${order.shippingOption==='express'?`https://www.google.com/maps/dir/?api=1&origin=${encodeURIComponent(origin)}&destination=${encodeURIComponent(destination)}&travelmode=driving`:`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(destination)}`}" target="_blank" rel="noopener">${order.shippingOption==='express'?'Google 지도에서 배송 경로 보기 ↗':'배송지 지도 보기 ↗'}</a>`:'';
+      const route=order.shippingOption==='express'?`<span>출발지 ${origin}</span>`:'';
       const canCancel=!order.cancelledAt&&now-created<30*60*1000;
       const thumb=orderItems[0]?productById(orderItems[0].id).image:'';
-      return `<article class="order-card"><header><div><b>${order.cancelledAt?'주문 취소':names[stage]}</b><small>주문번호 ${order.id}</small></div><small>${order.date||d.toLocaleDateString('ko-KR')} · ${clock}</small></header><div class="order-card-product">${thumb?`<img src="${thumb}" alt="">`:''}<p>${lines}</p></div><div class="order-card-total"><span>결제 금액</span><b>${fmt(order.total)}</b></div><section class="order-tracking"><b>${order.cancelledAt?'취소된 주문':`도착 ${stage===3?'완료':'예정'} · ${arrivalText}`}</b>${order.cancelledAt?'<p>주문이 취소되었습니다.</p>':`<p>${order.shippingOption==='express'?'빠른 배송 · 주문 즉시 배송 시작 · 3~5시간 내 도착 예정':`발송 예정 ${dispatchText}`}</p>${progress}${timeline}`}<div class="tracking-destination">${destination?`<span>배송지 ${val(destination)}</span>${mapLink}`:'배송 주소 정보가 없습니다.'}</div><small class="tracking-disclaimer">배송 단계와 도착 시간은 주문 시각 기준 예상 정보입니다.</small></section>${canCancel?`<button class="cancel-order-button" data-cancel="${order.id}">주문 취소</button>`:''}</article>`;
+      return `<article class="order-card"><header><div><b>${order.cancelledAt?'주문 취소':names[stage]}</b><small>주문번호 ${order.id}</small></div><small>${order.date||d.toLocaleDateString('ko-KR')} · ${clock}</small></header><div class="order-card-product">${thumb?`<img src="${thumb}" alt="">`:''}<p>${lines}</p></div><div class="order-card-total"><span>결제 금액</span><b>${fmt(order.total)}</b></div><section class="order-tracking"><b>${order.cancelledAt?'취소된 주문':`도착 ${stage===3?'완료':'예정'} · ${arrivalText}`}</b>${order.cancelledAt?'<p>주문이 취소되었습니다.</p>':`<p>${order.shippingOption==='express'?'빠른 배송 · 주문 즉시 배송 시작 · 3~5시간 내 도착 예정':`발송 예정 ${dispatchText}`}</p>${progress}${timeline}`}<div class="tracking-destination">${order.shippingOption==='express'?route:''}${destination?`<span>도착지 ${val(destination)}</span>${mapLink}`:'배송 주소 정보가 없습니다.'}</div><small class="tracking-disclaimer">배송 단계와 도착 시간은 주문 시각 기준 예상 정보입니다.</small></section>${canCancel?`<button class="cancel-order-button" data-cancel="${order.id}">주문 취소</button>`:''}</article>`;
     }).join('');
     clearInterval(orderTimer);orderTimer=setInterval(()=>{if(shade.classList.contains('open')&&drawerMode==='orders')renderOrders()},30000);
   }
@@ -84,13 +86,15 @@
   }
   function renderCategory() {
     const params=new URLSearchParams(location.search),group=params.get('group')||'shoes';
-    const titles={shoes:'신발',apparel:'의류',accessories:'액세서리',originals:'오리지널스',running:'러닝',training:'트레이닝',football:'축구',golf:'골프',sportswear:'스포츠웨어',men:'남성',women:'여성',kids:'키즈',outlet:'아울렛'};
+    const titles={all:'전체 상품',shoes:'신발',apparel:'의류',caps:'모자',accessories:'액세서리',originals:'오리지널스',running:'러닝',training:'트레이닝',football:'축구',golf:'골프',sportswear:'스포츠웨어',men:'남성',women:'여성',kids:'키즈',outlet:'아울렛'};
     const title=titles[group]||'신발';document.getElementById('categoryTitle').textContent=title;document.getElementById('crumbGroup').textContent=title;document.title=`${title} | adidas`;
-    document.getElementById('officialCategory').href=`https://www.adidas.co.kr/${({shoes:'shoes',apparel:'men-t_shirts',accessories:'accessories',originals:'originals',running:'running',training:'training',football:'football',golf:'golf',sportswear:'sportswear',men:'men',women:'women',kids:'kids-shoes',outlet:'outlet'})[group]||'shoes'}`;
+    const officialPaths={all:'',shoes:'shoes',apparel:'clothing',caps:'caps',accessories:'accessories',originals:'originals',running:'running',training:'training',football:'football',golf:'golf',sportswear:'sportswear',men:'men',women:'women',kids:'kids-shoes',outlet:'outlet'};
+    document.getElementById('officialCategory').href=group==='all'?'https://www.adidas.co.kr/':`https://www.adidas.co.kr/${officialPaths[group]||'shoes'}`;
+    document.getElementById('officialCategory').textContent=group==='all'?'아디다스 공식 스토어 전체 상품 ↗':'adidas 공식 스토어에서 더 보기 ↗';
     const filter=document.getElementById('categoryFilter');
-    if(['originals','running','training','football','golf','sportswear','apparel','accessories'].includes(group)){filter.value=group;}
+    if(['originals','running','training','football','golf','sportswear','apparel','caps','accessories'].includes(group)){filter.value=group;}
     const render=()=>{
-      let list=products.filter(p=>group==='all'||(group==='shoes'&&p.type!=='apparel'&&p.type!=='accessory')||(group==='outlet'&&p.outlet===true)||p.category===group||(group==='running'&&p.type==='apparel'&&p.badge.includes('RUNNING'))||((group==='men'||group==='women')&&(p.gender===group||p.gender==='Unisex'))||(group==='kids'&&p.gender==='Kids'));
+      let list=products.filter(p=>group==='all'||(group==='shoes'&&p.type!=='apparel'&&p.type!=='accessory')||(group==='outlet'&&p.outlet===true)||(group==='accessories'&&(p.category==='accessories'||p.category==='caps'))||p.category===group||(group==='running'&&p.type==='apparel'&&p.badge.includes('RUNNING'))||((group==='men'||group==='women')&&(p.gender===group||p.gender==='Unisex'))||(group==='kids'&&p.gender==='Kids'));
       if(filter.value!=='all')list=list.filter(p=>p.category===filter.value);
       const q=(params.get('q')||'').trim().toLocaleLowerCase('ko');if(q)list=list.filter(p=>[p.name,p.label,p.color,p.category,p.gender,p.badge,p.id].join(' ').toLocaleLowerCase('ko').includes(q));
       if(q){document.getElementById('categoryTitle').textContent=`“${params.get('q')}” 검색 결과`;document.getElementById('crumbGroup').textContent='검색';document.title=`${params.get('q')} 검색 결과 | adidas`;}

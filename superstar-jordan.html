@@ -6,8 +6,8 @@
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="theme-color" content="#111">
   <link rel="manifest" href="manifest.webmanifest">
-  <link rel="icon" type="image/png" sizes="192x192" href="adidas-app-192.png">
-  <link rel="apple-touch-icon" href="adidas-app-192.png">
+  <link rel="icon" type="image/png" href="adidas_logo.png">
+  <link rel="apple-touch-icon" href="adidas_logo.png">
   <title>SUPERSTAR X JORDAN - adidas</title>
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;600;700;800;900&display=swap');
@@ -630,6 +630,9 @@
     .order-card p { font-size:12px; line-height:1.7; color:#555; margin:5px 0 }
     .order-cancel { width:100%; margin-top:12px; padding:12px; border:1px solid #111; background:#fff; font-weight:700; cursor:pointer }
     .delivery-status { margin-top:15px; padding:13px; background:#f4f4f4; font-size:12px; line-height:1.8 }
+    .delivery-route { margin-top:12px; padding-top:10px; border-top:1px solid #ddd; overflow-wrap:anywhere }
+    .delivery-route p { margin:3px 0; }
+    .delivery-route a { display:inline-block; margin-top:5px; font-weight:700; text-decoration:underline; text-underline-offset:3px }
     .delivery-steps { display:flex; justify-content:space-between; gap:5px; margin-top:14px; font-size:10px; color:#777 }
     .delivery-steps .done, .delivery-steps .current { color:#111; font-weight:700 }
     .delivery-progress { height:7px; margin:12px 0 5px; background:#ddd; border-radius:8px; overflow:hidden }
@@ -1206,7 +1209,7 @@
   </footer>
   <div class="cart-shade" id="cartShade" aria-hidden="true"><section class="cart-panel" role="dialog" aria-modal="true" aria-labelledby="cartTitle"><header class="cart-head"><h2 id="cartTitle">장바구니 (0)</h2><button class="cart-close" id="cartClose" aria-label="장바구니 닫기">×</button></header><div id="cartContents"></div></section></div>
   <div class="toast" id="toast" role="status"></div>
-  <script src="catalog.js"></script>
+  <script src="catalog.js"></script><script src="catalog-extra.js"></script>
   <script>
     let cart = [];
     try { cart = JSON.parse(localStorage.getItem('adidasStoreCart') || '[]'); } catch { cart = []; }
@@ -1335,7 +1338,10 @@
           const arrivalLabel = deliveryAt.toLocaleString('ko-KR', { year:'numeric', month:'long', day:'numeric', hour:'numeric', minute:'2-digit' });
           const dispatchLabel = dispatchDate.toLocaleString('ko-KR', { month:'long', day:'numeric', hour:'numeric', minute:'2-digit' });
           const tracking = stageIndex >= 2 ? `<div class="delivery-progress"><span style="width:${percent}%"></span></div><div class="delivery-percent"><span>배송 진행률</span><span>${percent}%</span></div>` : '';
-          const status = order.cancelledAt ? `<div class="delivery-status"><strong>주문 취소</strong><br>주문이 취소되었습니다.</div>` : `<div class="delivery-status"><strong>${stages[stageIndex].title}</strong><br>${order.shippingOption === 'express' ? '빠른 배송 · 주문 즉시 배송 시작' : stages[stageIndex].detail}<br>${order.shippingOption === 'express' ? '발송 시작: 주문 즉시 · 주문 후 3~5시간 내 도착 예정' : `발송 예정: ${dispatchLabel}`}<br>${stageIndex === 3 ? '도착 시각' : '도착 예정'}: ${arrivalLabel}${tracking}<div class="delivery-steps">${stages.map((stage, index) => `<span class="${index < stageIndex ? 'done' : index === stageIndex ? 'current' : ''}">${stage.title}</span>`).join('')}</div></div>`;
+          const destination = [order.customer?.address, order.customer?.detail].filter(Boolean).join(' ');
+          const origin = '경기도 평택시 도일동 1175-3번지';
+          const route = order.shippingOption === 'express' ? `<div class="delivery-route"><p>출발지 경기도 평택시 도일동 1175-3번지</p><p>도착지 ${safe(destination || '주소 미등록')}</p>${destination ? `<a href="https://www.google.com/maps/dir/?api=1&origin=${encodeURIComponent(origin)}&destination=${encodeURIComponent(destination)}&travelmode=driving" target="_blank" rel="noopener">Google 지도에서 배송 경로 보기 ↗</a>` : ''}</div>` : '';
+          const status = order.cancelledAt ? `<div class="delivery-status"><strong>주문 취소</strong><br>주문이 취소되었습니다.</div>` : `<div class="delivery-status"><strong>${stages[stageIndex].title}</strong><br>${order.shippingOption === 'express' ? '빠른 배송 · 주문 즉시 배송 시작' : stages[stageIndex].detail}<br>${order.shippingOption === 'express' ? '발송 시작: 주문 즉시 · 주문 후 3~5시간 내 도착 예정' : `발송 예정: ${dispatchLabel}`}<br>${stageIndex === 3 ? '도착 시각' : '도착 예정'}: ${arrivalLabel}${tracking}<div class="delivery-steps">${stages.map((stage, index) => `<span class="${index < stageIndex ? 'done' : index === stageIndex ? 'current' : ''}">${stage.title}</span>`).join('')}</div>${route}</div>`;
           const cancel = !order.cancelledAt && now < prepareAt ? `<button class="order-cancel" data-cancel-order="${order.id}">주문 취소</button>` : '';
           const orderClock = new Date(createdAt).toLocaleTimeString('ko-KR', { hour:'2-digit', minute:'2-digit', hour12:false });
           const itemNames = [...new Set(order.items.map(item => item.name || storeProduct(item.id).name))];
@@ -1346,7 +1352,7 @@
       cartShade.classList.add('open');
       cartShade.setAttribute('aria-hidden', 'false');
       clearInterval(ordersRefreshTimer);
-      ordersRefreshTimer = setInterval(() => { if (cartShade.classList.contains('open') && document.getElementById('cartTitle').textContent === '주문 및 배송조회') openOrders(); }, 1000);
+      ordersRefreshTimer = setInterval(() => { if (cartShade.classList.contains('open') && document.getElementById('cartTitle').textContent === '주문 및 배송조회') openOrders(); }, 30000);
     }
     function openCart() {
       updateCart();
